@@ -1,0 +1,1 @@
+export const TWITCH_API_KEY: string = 'j9ybq0hpyrlo4pgczcefitgg50lzvs';
