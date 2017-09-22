@@ -1,0 +1,9 @@
+
+<div *ngFor = "let video of videoList" class="video-list-block">
+    <!-- Create an Onclick function to activate the play function-->
+    <div (click)='play(video)'>
+    <div>{{video.title}}</div>
+    <div>{{video._id}}</div>
+    <div><img src = {{video.preview}}></div>
+    </div>
+</div>

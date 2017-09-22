@@ -21,8 +21,10 @@ import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
 import { MainComponent } from './main/main.component';
-import { VideoListComponent } from './video/video.component';
+import { VideoListComponent } from './main/video-list/video-list.component';
 import { TwitchApiService } from './shared/services/twitch-api.service';
+import { TwitchPlayerService } from './shared/services/twitch-player.service';
+import { VideoPlayerComponent } from './main/video-player/video-player.component'
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -51,6 +53,7 @@ type StoreType = {
     NoContentComponent,
     MainComponent,
     VideoListComponent,
+    VideoPlayerComponent,
     XLargeDirective
   ],
   /**
@@ -73,7 +76,8 @@ type StoreType = {
   providers: [
     ENV_PROVIDERS,
     APP_PROVIDERS,
-    TwitchApiService
+    TwitchApiService,
+    TwitchPlayerService
   ]
 })
 export class AppModule {
