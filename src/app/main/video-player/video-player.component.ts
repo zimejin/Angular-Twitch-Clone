@@ -8,6 +8,7 @@ import { TwitchPlayerService } from '../../shared/services/twitch-player.service
 })
 
 export class VideoPlayerComponent implements AfterContentInit {
+    public minPlayer: boolean = true;
 
     constructor(private twitchplayerservice: TwitchPlayerService) {}
 

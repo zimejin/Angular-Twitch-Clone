@@ -15,7 +15,7 @@ consideration the VIDEO-ID */
     createPlayer(): void {
         let options = {
             width: '400',
-            height: '400',
+            height: '300',
             video: 'v109010497'
         };
         let interval = setInterval(() => {

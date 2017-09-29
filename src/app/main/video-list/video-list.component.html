@@ -1,8 +1,6 @@
 <div class="mdl-grid">
-    <div class="mdl-cell mdl-cell--3-col" *ngFor="let video of videoList">
-        <div>
-        <div (click)='play(video)'><img src = {{video.preview}}></div>
-        <p>Title Goes Here</p>
+    <div class="mdl-cell mdl-cell--4-col" *ngFor="let video of videoList">
+            <div (click)='play(video)'><img src = {{video.preview}}></div>
+            <h3>{{video.title}}</h3>
     </div>
-</div>
 </div>
