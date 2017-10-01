@@ -1,9 +1,19 @@
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header" style="background-color: rgb(100, 65, 164 ); height: 50px; width: 100%;">
         <div class="mdl-layout__header-row">
+            <div class="mdl-layout-title" style="width: 12%;">
             <img src="assets/icon/Twitch_White_RGB.png" style="max-height: 32px; padding-left: 20px; max-width: 94px; padding-top: 10px;">
         </div>
+            <nav class="mdl-navigation mdl-layout--large-screen-only" style="width: 100%;">
+                <videos-search (videosUpdated)="handleSearchVideo($event)" style="width: 100%;"></videos-search>
+              </nav>
+              <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button mdl-layout--large-screen-only" (click)="togglePlaylist()">
+                  <i class="material-icons"></i>
+                </div>
+        </div>
     </header>
+    <main class="mdl-layout__content">
     <video-list (videosUpdated)="handleSearchVideo($event)" [videoList]="videoList"></video-list>
+    </main>
 </div>
 <video-player></video-player>

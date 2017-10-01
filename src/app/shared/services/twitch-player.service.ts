@@ -28,7 +28,7 @@ consideration the VIDEO-ID */
    /* TODO - create a Play-Video function that would load the video by ID */
 
    playVideo(video) {
-       console.log("now playing")
+       console.log("Playing", video._id)
        this.twitch_player.setVideo(video._id)
    }
 }

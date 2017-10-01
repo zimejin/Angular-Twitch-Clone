@@ -24,7 +24,8 @@ import { MainComponent } from './main/main.component';
 import { VideoListComponent } from './main/video-list/video-list.component';
 import { TwitchApiService } from './shared/services/twitch-api.service';
 import { TwitchPlayerService } from './shared/services/twitch-player.service';
-import { VideoPlayerComponent } from './main/video-player/video-player.component'
+import { VideoPlayerComponent } from './main/video-player/video-player.component';
+import { TwitchVideoSearchComponent } from './main/videos-search/videos-search.component';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -54,6 +55,7 @@ type StoreType = {
     MainComponent,
     VideoListComponent,
     VideoPlayerComponent,
+    TwitchVideoSearchComponent,
     XLargeDirective
   ],
   /**

@@ -11,17 +11,11 @@ import { TwitchPlayerService } from '../../shared/services/twitch-player.service
 export class VideoListComponent {
     public query: any = 'videos/top?';
     @Input() videoList; 
-    @Output() videosUpdated = new EventEmitter();
 
     constructor(
         private twitchservice: TwitchApiService,
         private twitchplayerservice: TwitchPlayerService
-    ) {
-        this.twitchservice.getStreams(this.query)
-        .subscribe(data => {
-            this.videosUpdated.emit(data);
-        })
-    }
+    ) {}
 
    /* TODO - Write a Play-Video Function. Which takes Video-ID as a parameter to Initialize 
    a similar function In the Video-Player-Service to load the Video by ID */

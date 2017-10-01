@@ -8,6 +8,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class TwitchApiService {
     base_url: string = 'https://api.twitch.tv/kraken/';
+    // tslint:disable-next-line:max-line-length
+    search_url: string = 'https://api.twitch.tv/kraken/search/streams?query=';
     client_id: any   =  'j9ybq0hpyrlo4pgczcefitgg50lzvs';
 
     constructor(
@@ -19,6 +21,15 @@ export class TwitchApiService {
         .map(results => {
             let res = results.json();
             return res.videos;
-        })
+        });
+    }
+
+    public searchVideos(query: any): Observable<any> {
+        let api = this.search_url + query + '&client_id=' + this.client_id + '&type=suggest';
+        return this.http.get(api)
+        .map(results => {
+            let res = results.json();
+            return res.streams;
+        });
     }
 }
