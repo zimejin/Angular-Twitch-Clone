@@ -14,9 +14,9 @@ consideration the VIDEO-ID */
 
     createPlayer(): void {
         let options = {
-            width: '400',
+            width:  '400',
             height: '300',
-            video: 'v109010497'
+            video:  null
         };
         let interval = setInterval(() => {
             this.twitch_player = new Twitch.Player('twitch-player', options);
@@ -25,10 +25,9 @@ consideration the VIDEO-ID */
         }, 100 );
     }
 
-   /* TODO - create a Play-Video function that would load the video by ID */
+   /* TODO - create a Play-Video function that would load the video by ID //'v109010497'*/
 
-   playVideo(video) {
-       console.log("Playing", video._id)
-       this.twitch_player.setVideo(video._id)
+   public playVideo(video:any) {
+        this.twitch_player.setVideo(video._id);
    }
 }

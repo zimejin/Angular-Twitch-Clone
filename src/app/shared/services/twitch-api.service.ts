@@ -7,17 +7,18 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class TwitchApiService {
-    base_url: string = 'https://api.twitch.tv/kraken/';
+    base_url: string = 'https://api.twitch.tv/kraken/videos/top?';
     // tslint:disable-next-line:max-line-length
-    search_url: string = 'https://api.twitch.tv/kraken/search/streams?query=';
+    search_url: string = 'https://api.twitch.tv/kraken/search/games?query=';
     client_id: any   =  'j9ybq0hpyrlo4pgczcefitgg50lzvs';
 
     constructor(
         private http: Http
     ){}
 
-    public getStreams(query: string): Observable<any> {
-        return this.http.get(this.base_url + query + 'client_id=' + this.client_id )
+    public getStreams(): Observable<any> {
+        let api = this.base_url + 'client_id=' + this.client_id + '&type=suggest'
+        return this.http.get(api)
         .map(results => {
             let res = results.json();
             return res.videos;
@@ -29,7 +30,7 @@ export class TwitchApiService {
         return this.http.get(api)
         .map(results => {
             let res = results.json();
-            return res.streams;
+            return res.games;
         });
     }
 }
