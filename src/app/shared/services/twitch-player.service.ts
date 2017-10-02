@@ -29,5 +29,6 @@ consideration the VIDEO-ID */
 
    public playVideo(video:any) {
         this.twitch_player.setVideo(video._id);
+        console.log(video._id)
    }
 }

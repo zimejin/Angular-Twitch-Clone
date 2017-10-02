@@ -20,6 +20,7 @@ export class TwitchApiService {
         let api = this.base_url + 'client_id=' + this.client_id + '&type=suggest'
         return this.http.get(api)
         .map(results => {
+            console.log()
             let res = results.json();
             return res.videos;
         });

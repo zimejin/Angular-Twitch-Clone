@@ -41,7 +41,7 @@ export class TwitchVideoSearchComponent {
                 let DataObj = {
                     title:   response[i].name,
                     _id:     response[i]._id,
-                    preview: response[i].box.medium};
+                    preview: response[i].box.large};
                 arrayObj.push(DataObj)
                 }
             this.videosUpdated.emit(arrayObj);
