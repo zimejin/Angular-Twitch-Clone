@@ -35,18 +35,16 @@ export class TwitchVideoSearchComponent {
 
         this.twitchservice.searchVideos(this.last_search)
         .subscribe((response) => {
+            let arrayObj = [];
             // tslint:disable-next-line:forin
             for (let i in response) {
-                let videoObj = {
-                    title:  response[i].name,
-                    _id:    response[i]._id,
-                    preview: response[i].box.medium
-                };
-                console.log(videoObj)
-                let data = [];
-                data.push(videoObj);
-                this.videosUpdated.emit(data);
-            }
-        });
+                let DataObj = {
+                    title:   response[i].name,
+                    _id:     response[i]._id,
+                    preview: response[i].box.medium};
+                arrayObj.push(DataObj)
+                }
+            this.videosUpdated.emit(arrayObj);
+            });
+        }
     }
-}
