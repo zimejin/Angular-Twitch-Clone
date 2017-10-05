@@ -23,7 +23,7 @@ export class TwitchVideoSearchComponent {
         private twitchservice: TwitchApiService,
         private twitchplayerservice: TwitchPlayerService
     ) {
-        this.twitchservice.getStreams()
+        this.twitchservice.getVideos()
         .subscribe((data) => {
            this.videosUpdated.emit(data);
         });
@@ -39,9 +39,10 @@ export class TwitchVideoSearchComponent {
             // tslint:disable-next-line:forin
             for (let i in response) {
                 let DataObj = {
-                    title:   response[i].name,
+                    title:   response[i].title,
                     _id:     response[i]._id,
-                    preview: response[i].box.large};
+                    preview: response[i].preview,
+                    views:   response[i].views};
                 arrayObj.push(DataObj)
                 }
             this.videosUpdated.emit(arrayObj);

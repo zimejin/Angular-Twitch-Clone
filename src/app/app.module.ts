@@ -20,13 +20,18 @@ import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
-import { MainComponent } from './main/main.component';
-import { VideoListComponent } from './main/video-list/video-list.component';
+//  Services
 import { TwitchApiService } from './shared/services/twitch-api.service';
 import { TwitchPlayerService } from './shared/services/twitch-player.service';
 import { VideoPlayerComponent } from './main/video-player/video-player.component';
+//  Custom Components
 import { TwitchVideoSearchComponent } from './main/videos-search/videos-search.component';
-
+import { MainComponent } from './main/main.component';
+import { VideoListComponent } from './main/video-list/video-list.component';
+//  Pipes
+import { VideoDurationPipe } from './shared/pipes/video-duration.pipe';
+import { VideoViewsPipe } from './shared/pipes/video-views.pipe';
+//  Styles
 import '../styles/styles.scss';
 import '../styles/headings.css';
 
@@ -48,15 +53,17 @@ type StoreType = {
 @NgModule({
   bootstrap: [ AppComponent ],
   declarations: [
+    XLargeDirective,
     AppComponent,
+    MainComponent,
     AboutComponent,
     HomeComponent,
     NoContentComponent,
-    MainComponent,
     VideoListComponent,
     VideoPlayerComponent,
     TwitchVideoSearchComponent,
-    XLargeDirective
+    VideoDurationPipe,
+    VideoViewsPipe
   ],
   /**
    * Import Angular's modules.

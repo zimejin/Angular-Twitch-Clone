@@ -9,18 +9,19 @@ import 'rxjs/add/operator/map';
 export class TwitchApiService {
     base_url: string = 'https://api.twitch.tv/kraken/videos/top?';
     // tslint:disable-next-line:max-line-length
-    search_url: string = 'https://api.twitch.tv/kraken/search/games?query=';
+    search_url: string = 'https://api.twitch.tv/kraken/videos/top?period=all&game=';
     client_id: any   =  'j9ybq0hpyrlo4pgczcefitgg50lzvs';
+    max_results: number = 40;
 
     constructor(
         private http: Http
     ){}
 
-    public getStreams(): Observable<any> {
-        let api = this.base_url + 'client_id=' + this.client_id + '&type=suggest'
+    public getVideos(): Observable<any> {
+        // tslint:disable-next-line:max-line-length
+        let api = this.base_url + 'client_id=' + this.client_id + '&limit=' + this.max_results + '&type=suggest';
         return this.http.get(api)
         .map(results => {
-            console.log()
             let res = results.json();
             return res.videos;
         });
@@ -31,7 +32,11 @@ export class TwitchApiService {
         return this.http.get(api)
         .map(results => {
             let res = results.json();
-            return res.games;
+            console.log(res.videos.length);
+            if(res.videos.length === 0){
+                alert('Sorry no streams where found');
+            }
+            return res.videos;
         });
     }
 }
