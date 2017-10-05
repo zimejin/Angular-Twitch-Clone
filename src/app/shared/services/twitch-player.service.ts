@@ -6,6 +6,8 @@ let _window: any = window;
 @Injectable()
 export class TwitchPlayerService {
     public twitch_player;
+    public width:string = '400';
+    public height:string = '300';
 
     constructor() {}
 
@@ -14,8 +16,8 @@ consideration the VIDEO-ID */
 
     createPlayer(): void {
         let options = {
-            width:  '400',
-            height: '300',
+            width:  this.width,
+            height: this.height,
             video:  null
         };
         let interval = setInterval(() => {
@@ -29,6 +31,10 @@ consideration the VIDEO-ID */
 
    public playVideo(video:any) {
         this.twitch_player.setVideo(video._id);
-        console.log(video._id)
-   }
+   };
+   
+   resizePlayer(width: number, height: number) {
+       this.width   =  width.toString();
+       this.height   =  width.toString();
+   };
 }

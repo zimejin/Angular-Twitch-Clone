@@ -7,6 +7,25 @@
     z-index: 992;
 }
 
+.player-view-controls {
+    position: absolute;
+    color: white;
+    background-color: rgb(196, 48, 43);
+    top: -27px;
+    left: -3px;
+    font-size: 30px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+
+  .player-view-controls i {
+    cursor: pointer;
+  }
+  
+  .player-view-controls .minimize {
+    margin-left: -7px;
+  }
+
 .player-container {
     transition: all 300ms ease-in-out;
     width: 410px;
@@ -23,4 +42,39 @@
 
 .player-container.minimized {
     transform: translate3d(-20%, 20%, 0) scale(0.6);
-  }
+}
+  
+.player-container.super-minimized {
+    transform: translate3d(-42.5%, 46.5%, 0) scale(0.15);
+}
+
+.player-fullscreen {
+    bottom: 50px;
+    left: 0;
+    width: 95%;
+    height: calc(100% - 114px);
+    border: none;
+    box-shadow: none;
+}
+
+.main-twitch-player-block {
+    position: relative;
+    text-align: center;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+  .main-twitch-player-block .material-icons {
+    position: absolute;
+    color: white;
+    font-size: 255px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    cursor: pointer;
+    display: none;
+    text-shadow: 2px 2px 2px #000;
+ }
