@@ -17,26 +17,37 @@ export class TwitchApiService {
         private http: Http
     ){}
 
-    public getVideos(): Observable<any> {
+    public getVideos(): Promise<any> {
         // tslint:disable-next-line:max-line-length
         let api = this.base_url + 'client_id=' + this.client_id + '&limit=' + this.max_results + '&type=suggest';
         return this.http.get(api)
-        .map(results => {
+        .map((results) => {
             let res = results.json();
             return res.videos;
-        });
+        })
+        .toPromise()
+        .catch(this.handleError)
     }
 
-    public searchVideos(query: any): Observable<any> {
+    public searchVideos(query: any): Promise<any> {
         let api = this.search_url + query + '&client_id=' + this.client_id + '&type=suggest';
         return this.http.get(api)
-        .map(results => {
+        .map((results) => {
             let res = results.json();
             console.log(res.videos.length);
-            if(res.videos.length === 0){
+            if (res.videos.length === 0){
                 alert('Sorry no streams where found');
             }
             return res.videos;
-        });
+        })
+        .toPromise()
+        .catch(this.handleError)
+    }
+
+    private handleError(error: Response | any) {
+        let errMsg: string;
+        if (error instanceof Response) {
+            alert("There's been an Error, Please confirm you're connected to the Internet");
+        }
     }
 }

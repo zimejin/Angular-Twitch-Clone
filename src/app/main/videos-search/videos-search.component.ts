@@ -21,11 +21,10 @@ export class TwitchVideoSearchComponent {
     constructor(
         public fb: FormBuilder,
         private twitchservice: TwitchApiService,
-        private twitchplayerservice: TwitchPlayerService
-    ) {
+        private twitchplayerservice: TwitchPlayerService) {
         this.twitchservice.getVideos()
-        .subscribe((data) => {
-           this.videosUpdated.emit(data);
+        .then((data) => {
+            this.videosUpdated.emit(data);
         });
     }
 
@@ -34,7 +33,7 @@ export class TwitchVideoSearchComponent {
         this.last_search = this.searchForm.value.query;
 
         this.twitchservice.searchVideos(this.last_search)
-        .subscribe((response) => {
+        .then((response) => {
             let arrayObj = [];
             // tslint:disable-next-line:forin
             for (let i in response) {
@@ -43,7 +42,7 @@ export class TwitchVideoSearchComponent {
                     _id:     response[i]._id,
                     preview: response[i].preview,
                     views:   response[i].views};
-                arrayObj.push(DataObj)
+                arrayObj.push(DataObj);
                 }
             this.videosUpdated.emit(arrayObj);
             });

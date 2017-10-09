@@ -9,8 +9,8 @@ import { TwitchPlayerService } from '../../shared/services/twitch-player.service
 
 export class VideoPlayerComponent implements AfterContentInit {
     public minPlayer: boolean = true;
-    public fullscreenActive: boolean = false;
     public superMinPlayer: boolean = false;
+    public fullscreenActive: boolean = false;
     public currentVideoText: string = 'None';
 
     constructor(private twitchplayerservice: TwitchPlayerService) {
@@ -18,7 +18,8 @@ export class VideoPlayerComponent implements AfterContentInit {
         this.twitchplayerservice.currentVideoText.subscribe((event) => this.currentVideoText = event || 'None' );
     }
 
-    ngAfterContentInit(){
+    // tslint:disable-next-line:member-access
+    ngAfterContentInit() {
         let doc = window.document;
         let playerApi = doc.createElement('script');
         playerApi.type = 'text/javascript';
@@ -27,21 +28,24 @@ export class VideoPlayerComponent implements AfterContentInit {
         this.twitchplayerservice.createPlayer();
     }
 
+    // tslint:disable-next-line:member-access
     togglePlayer(): void {
-		this.minPlayer = !this.minPlayer;
-		this.superMinPlayer = false;
-	}
+        this.minPlayer = !this.minPlayer;
+        this.superMinPlayer = false;
+    }
 
+    // tslint:disable-next-line:member-access
     toggleFullscreen(): void {
-		this.minPlayer = false;
-		this.superMinPlayer = false;
-		this.fullscreenActive = !this.fullscreenActive;
-		let width = this.fullscreenActive ? window.innerWidth - 70: 440;
-		let height = this.fullscreenActive ? window.innerHeight - 120: 250;
-		this.twitchplayerservice.resizePlayer(width, height);
+        this.minPlayer = false;
+        this.superMinPlayer = false;
+        this.fullscreenActive = !this.fullscreenActive;
+        let width = this.fullscreenActive ? window.innerWidth - 70 : 440;
+        let height = this.fullscreenActive ? window.innerHeight - 120 : 250;
+        this.twitchplayerservice.resizePlayer(width, height);
     };
-    
+
+    // tslint:disable-next-line:member-access
     minimizePlayer(): void {
-        this.superMinPlayer =	!this.superMinPlayer;
-	}
+        this.superMinPlayer = !this.superMinPlayer;
+    }
 }
