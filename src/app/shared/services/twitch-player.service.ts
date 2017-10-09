@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 let _window: any = window;
@@ -6,8 +6,11 @@ let _window: any = window;
 @Injectable()
 export class TwitchPlayerService {
     public twitch_player;
-    public width:string = '400';
-    public height:string = '300';
+    public width: string = '400';
+    public height: string = '300';
+    private currentVideoId: string;
+
+    @Output() currentVideoText: EventEmitter<any> = new EventEmitter(true);
 
     constructor() {}
 
@@ -31,10 +34,12 @@ consideration the VIDEO-ID */
 
    public playVideo(video:any) {
         this.twitch_player.setVideo(video._id);
+        this.currentVideoId = video._id;
+        this.currentVideoText.emit(video.title);
    };
-   
+
    resizePlayer(width: number, height: number) {
-       this.width   =  width.toString();
-       this.height   =  width.toString();
+       this.width = width.toString();
+       this.height = width.toString();
    };
-}
+};

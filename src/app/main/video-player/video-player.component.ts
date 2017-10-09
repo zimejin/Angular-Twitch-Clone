@@ -1,4 +1,4 @@
-import { Component, AfterContentInit } from '@angular/core';
+import { Component, AfterContentInit, EventEmitter } from '@angular/core';
 import { TwitchPlayerService } from '../../shared/services/twitch-player.service';
 
 @Component({
@@ -11,8 +11,12 @@ export class VideoPlayerComponent implements AfterContentInit {
     public minPlayer: boolean = true;
     public fullscreenActive: boolean = false;
     public superMinPlayer: boolean = false;
+    public currentVideoText: string = 'None';
 
-    constructor(private twitchplayerservice: TwitchPlayerService) {}
+    constructor(private twitchplayerservice: TwitchPlayerService) {
+        // tslint:disable-next-line:max-line-length
+        this.twitchplayerservice.currentVideoText.subscribe((event) => this.currentVideoText = event || 'None' );
+    }
 
     ngAfterContentInit(){
         let doc = window.document;

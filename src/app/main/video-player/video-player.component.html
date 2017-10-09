@@ -1,13 +1,25 @@
 <div class='main-player-block'>
-    <div class='player-container' [ngClass]="{'minimized': minPlayer, 'super-minimized': superMinPlayer, 'player-fullscreen': fullscreenActive }">
-            <div class="player-view-controls">
-                <i class="material-icons" *ngIf="!minPlayer && !superMinPlayer && !fullscreenActive" (click)="togglePlayer()">arrow_drop_down</i>
-                <i class="material-icons" *ngIf="minPlayer && !superMinPlayer && !fullscreenActive" (click)="togglePlayer()">arrow_drop_up</i>
-                <i class="material-icons minimize" *ngIf="!superMinPlayer && !fullscreenActive" (click)="minimizePlayer()">remove</i>
+    <div class="player-controls-block">
+            <div class="current-playing-text" *ngIf="superMinPlayer">
+                    <span class="now-playing-label">Now playing: </span>
+                    <span>{{ currentVideoText }}</span>
+                  </div>
+                  <span class="mute-block">
+                      <button id="fullscreen_tip" class="mdl-button mdl-js-button mdl-button--icon" [ngClass]="{'active': fullscreenActive}" (click)="toggleFullscreen()">
+                          <i class="material-icons">fullscreen</i>
+                        </button>
+                        <div class="mdl-tooltip mdl-tooltip--top" data-mdl-for="fullscreen_tip">Fullscreen</div>
+                    </span>
+                </div>
+                <div class='player-container' [ngClass]="{'minimized': minPlayer, 'super-minimized': superMinPlayer, 'player-fullscreen': fullscreenActive }">
+                    <div class="player-view-controls">
+                        <i class="material-icons" *ngIf="!minPlayer && !superMinPlayer && !fullscreenActive" (click)="togglePlayer()">arrow_drop_down</i>
+                        <i class="material-icons" *ngIf="minPlayer && !superMinPlayer && !fullscreenActive" (click)="togglePlayer()">arrow_drop_up</i>
+                        <i class="material-icons minimize" *ngIf="!superMinPlayer && !fullscreenActive" (click)="minimizePlayer()">remove</i>
+                    </div>
+                    <div class= "main-twitch-player-block">
+                        <i class="material-icons" *ngIf="superMinPlayer" (click)="minimizePlayer()">zoom_out_map</i>
+                        <div id='twitch-player'></div>
+                    </div>
+                </div>
             </div>
-            <div class= "main-twitch-player-block">
-                <i class="material-icons" *ngIf="superMinPlayer" (click)="minimizePlayer()">zoom_out_map</i>
-                <div id='twitch-player'></div>
-            </div>
-        </div>
-    </div>
