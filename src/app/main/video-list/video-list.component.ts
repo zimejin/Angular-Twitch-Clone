@@ -19,14 +19,16 @@ export class VideoListComponent {
         private twitchservice: TwitchApiService,
         private twitchplayerservice: TwitchPlayerService) {}
 
-   /* TODO - Write a Play-Video Function. Which takes Video-ID as a parameter to Initialize
-   a similar function In the Video-Player-Service to load the Video by ID */
+   /* The Play Function Takes video._id as a parameter to Initialize
+   a similar function In the TwitchPlayerService to set the video by ID */
 
    public play(video: any): void {
        this.twitchplayerservice.playVideo(video);
    }
-
-   public appeal(video: any) {
-    this.Liked = !this.Liked;
+    /* Iteration TODO - A love icon to transition to red when a user likes a Video, It should apply
+    to only the selected Div Element. A potential way to do this is by using a dynamically rendered 
+    Div ID */
+   public videoLiked(video: any) {
+       console.log('Thanks for liking');
    }
 }

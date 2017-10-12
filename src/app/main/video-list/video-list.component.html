@@ -23,8 +23,7 @@
                 <i class="material-icons">play_circle_filled</i></div>
             </div>
             <div class="mdl-card__supporting-text">
-                <i class="material-icons" *ngIf="Liked" (click)='appeal(video)'>thumb_up</i>
-                <i class="material-icons" *ngIf="!Liked" (click)='appeal(video)'>thumb_down</i>
+                <i class="material-icons" (click)='videoLiked(video)'>videogame_asset</i>
             </div>
         </div>
     </div>

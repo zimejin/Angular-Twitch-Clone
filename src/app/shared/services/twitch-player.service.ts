@@ -25,7 +25,7 @@ export class TwitchPlayerService {
             // tslint:disable-next-line:max-line-length
             if ((typeof _window.Twitch !== 'undefined') && _window.Twitch && _window.Twitch.Player) {
                 this.twitch_player = new Twitch.Player('twitch-player', options);
-                this.twitch_player.setMuted(true);
+                this.twitch_player.setMuted(false);
                 clearInterval(interval);
             }
         }, 100 );
