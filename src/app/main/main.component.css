@@ -11,3 +11,11 @@
   top: calc(50% - 35px);
   left: calc(50% - 16px);
 }
+.mdl-layout__drawer {
+  background-color: #19171c;
+  border-right: 1px solid #19171c;
+}
+
+.mdl-layout__drawer.is-visible {
+  width: 234px;
+}

@@ -9,10 +9,15 @@ import { TwitchApiService } from '../shared/services/twitch-api.service';
 
 export class MainComponent {
     public videoList = [];
+    public favoriteVideosList = [];
     constructor( private twitchapiservice: TwitchApiService){}
 
-    handleSearchVideo(videos: Array<any>): void {
+    public handleSearchVideo(videos: Array<any>): void {
         // this functions will create populate the videoList with the array from the API.
         this.videoList = videos;
+    }
+    public handleLikeEvent(videos: Array<any>): void {
+        // Push our favorite videos into a favorite videos array
+        this.favoriteVideosList = videos;
     }
 }

@@ -19,20 +19,13 @@
         </ul>
      </div>
     </header>
-
     <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Title</span>
-            <nav class="mdl-navigation">
-              <a class="mdl-navigation__link" href="">Link</a>
-              <a class="mdl-navigation__link" href="">Link</a>
-              <a class="mdl-navigation__link" href="">Link</a>
-              <a class="mdl-navigation__link" href="">Link</a>
-            </nav>
-          </div>
-
+        <drawer [favoriteVideosList]="favoriteVideosList"></drawer>
+    </div>
     <main class="mdl-layout__content">
         <div class="page-content">
-        <video-list class="mdl-grid" (videosUpdated)="handleSearchVideo($event)" [videoList]="videoList"></video-list>
+        <video-list class="mdl-grid" [videoList]="videoList" 
+        (LikeEvent)="handleLikeEvent($event)"></video-list>
         </div>
     </main>
 </div>

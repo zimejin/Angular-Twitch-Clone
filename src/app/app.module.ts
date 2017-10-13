@@ -28,6 +28,7 @@ import { VideoPlayerComponent } from './main/video-player/video-player.component
 import { TwitchVideoSearchComponent } from './main/videos-search/videos-search.component';
 import { MainComponent } from './main/main.component';
 import { VideoListComponent } from './main/video-list/video-list.component';
+import { DrawerComponent } from './main/drawer-component/drawer-component';
 //  Pipes
 import { VideoDurationPipe } from './shared/pipes/video-duration.pipe';
 import { VideoViewsPipe } from './shared/pipes/video-views.pipe';
@@ -62,6 +63,7 @@ type StoreType = {
     VideoListComponent,
     VideoPlayerComponent,
     TwitchVideoSearchComponent,
+    DrawerComponent,
     VideoDurationPipe,
     VideoViewsPipe
   ],

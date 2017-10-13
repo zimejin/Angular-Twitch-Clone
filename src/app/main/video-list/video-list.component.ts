@@ -10,10 +10,10 @@ import { TwitchPlayerService } from '../../shared/services/twitch-player.service
 
 export class VideoListComponent {
     public query: any = 'videos/top?';
-    public Liked: boolean = false;
+    public favoriteVideos = [];
 
-    // tslint:disable-next-line:member-access
     @Input() videoList;
+    @Output() LikeEvent = new EventEmitter();
 
     constructor(
         private twitchservice: TwitchApiService,
@@ -25,10 +25,8 @@ export class VideoListComponent {
    public play(video: any): void {
        this.twitchplayerservice.playVideo(video);
    }
-    /* Iteration TODO - A love icon to transition to red when a user likes a Video, It should apply
-    to only the selected Div Element. A potential way to do this is by using a dynamically rendered 
-    Div ID */
-   public videoLiked(video: any) {
-       console.log('Thanks for liking');
-   }
+   public addToFavorites(video: any): void {
+       this.favoriteVideos.push(video);
+       this.LikeEvent.emit(this.favoriteVideos);
+    }
 }
