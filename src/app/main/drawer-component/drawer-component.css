@@ -1,3 +1,44 @@
-p {
-    color: white;
+.h5-text {
+	color: #b8b5c0!important;
+}
+h5 {
+	font-size: 1.4rem;
+	font-weight: 400;
+}
+hr {
+    border-top: 1px solid #2c2541;
+}
+.favorite-streams {
+	margin-right: 1rem !important;
+	margin-left: 1rem !important;
+	margin-top: 1rem !important;
+}
+.side-elements-container {
+    width: 275px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color:#b8b5c0!important;
+    position: relative;
+    font-family: helvetica;
+}
+.tw-avatar {
+    height: 40px;
+    width: 45px;
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+}
+.side-stream_name {
+    display: inline-block;
+    position: absolute;
+    left:70px;
+    margin-left: 10px;
+}
+.side-stream_details {
+    font-size: 12px;
+    margin-left: 10px;
+    display: inline-block;
+}
+.side-elements-container:hover {
+    color: green!important;
 }

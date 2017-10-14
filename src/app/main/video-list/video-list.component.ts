@@ -28,5 +28,6 @@ export class VideoListComponent {
    public addToFavorites(video: any): void {
        this.favoriteVideos.push(video);
        this.LikeEvent.emit(this.favoriteVideos);
+       console.log(video)
     }
 }

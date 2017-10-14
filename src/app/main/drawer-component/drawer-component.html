@@ -1,4 +1,23 @@
-<p>text goes here</p>
-<div *ngFor="let video of favoriteVideosList">
-  <p>{{video.title}}</p>
+<div id="main">
+  <div class="favorite-streams">
+    <h5 class="h5-text">Favorite Videos</h5>
+    <hr>
+  </div>
+    <!-- Okay -->
+    <div class="side-elements-container" *ngFor="let video of favoriteVideosList">
+      <div class="side-navi-panel">
+          <div class="tw-avatar" [ngStyle]="{'background' : '#000 url(' + video.preview + ') center center no-repeat', 'background-size': '125%' }">
+          </div>
+        <div class="side-stream_name">
+          <p>{{video.channel.name}}</p>
+        </div>
+        <div class="side-stream_details">
+          <span class="sidebar-title">{{video.title}}</span>
+        </div>
+      </div>
+    </div>
+    <!--End-->
+  <div id="userbar"></div>
+  <div id="searchbar"></div>
+
 </div>
