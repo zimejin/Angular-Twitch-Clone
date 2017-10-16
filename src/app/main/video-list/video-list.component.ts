@@ -12,7 +12,7 @@ export class VideoListComponent {
     public query: any = 'videos/top?';
     public favoriteVideos = [];
     public toggle: boolean = true;
-    
+
     @Input() videoList;
     @Output() LikeEvent = new EventEmitter();
 
@@ -30,8 +30,9 @@ export class VideoListComponent {
        if (!this.favoriteVideos.some((e) => e.title === video.title )){
            this.favoriteVideos.push(video);
            this.LikeEvent.emit(this.favoriteVideos);
-           console.log(video)
-        }  this.toggleState()
+           console.log(video);
+        }
+       this.toggleState();
     }
     public toggleState() {
         this.toggle = !this.toggle;

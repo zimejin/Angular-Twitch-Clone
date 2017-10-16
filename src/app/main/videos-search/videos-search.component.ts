@@ -31,19 +31,17 @@ export class TwitchVideoSearchComponent {
     public doSearch(event): void {
         this.videosUpdated.emit([]);
         this.last_search = this.searchForm.value.query;
-
         this.twitchservice.searchVideos(this.last_search)
         .then((response) => {
             let arrayObj = [];
-            // tslint:disable-next-line:forin
-            // Is there a better way to execute this code block? try mapping
-            for (let i in response) {
-                let DataObj = {
-                    title:   response[i].title,
-                    _id:     response[i]._id,
+            interface DataObj { title: any; _id: any; preview: any; views: any; }
+            for (let i of response) {
+                const data: DataObj = {
+                    title:  response[i].title,
+                    _id:    response[i]._id,
                     preview: response[i].preview,
                     views:   response[i].views};
-                arrayObj.push(DataObj);
+                arrayObj.push(data);
                 }
             this.videosUpdated.emit(arrayObj);
             });
