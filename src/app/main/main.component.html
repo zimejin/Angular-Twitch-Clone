@@ -22,10 +22,9 @@
     <div class="mdl-layout__drawer">
         <drawer [favoriteVideosList]="favoriteVideosList"></drawer>
     </div>
-    <main class="mdl-layout__content">
+    <main class="mdl-layout__content" LazyScroll (OnScrollMethod)="getStreams()" ScrollDistance="3">
         <div class="page-content">
-        <video-list class="mdl-grid" [videoList]="videoList" 
-        (LikeEvent)="handleLikeEvent($event)"></video-list>
+        <video-list class="mdl-grid" [videoList]="videoList" (LikeEvent)="handleLikeEvent($event)"></video-list>
         </div>
     </main>
 </div>

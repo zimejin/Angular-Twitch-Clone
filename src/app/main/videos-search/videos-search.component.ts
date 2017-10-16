@@ -36,6 +36,7 @@ export class TwitchVideoSearchComponent {
         .then((response) => {
             let arrayObj = [];
             // tslint:disable-next-line:forin
+            // Is there a better way to execute this code block? try mapping
             for (let i in response) {
                 let DataObj = {
                     title:   response[i].title,

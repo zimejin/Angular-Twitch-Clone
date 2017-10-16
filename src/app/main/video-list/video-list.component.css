@@ -32,13 +32,16 @@
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	padding: 6px 2px 2px 2px;
-	color: rgb(65,105,225);
 	text-align: right;
 	width: 97%;
 }
 .mdl-card__supporting-text .material-icons {
 	cursor: pointer;
 	font-size: 20px;
+	color: #9A9B9E;
+}
+.mdl-card__supporting-text > .material-icons.active {
+	color:#DF1212;
 }
 .mdl-card--expand:hover .video-play-button i {
 	visibility: visible;

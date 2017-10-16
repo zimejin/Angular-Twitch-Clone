@@ -11,7 +11,9 @@ export class TwitchApiService {
     // tslint:disable-next-line:max-line-length
     search_url: string = 'https://api.twitch.tv/kraken/videos/top?period=all&game=';
     client_id: any   =  'j9ybq0hpyrlo4pgczcefitgg50lzvs';
-    max_results: number = 40;
+
+    public max_results: number = 40;
+    public lastQuery: string;
 
     constructor(
         private http: Http
@@ -30,14 +32,28 @@ export class TwitchApiService {
     }
 
     public searchVideos(query: any): Promise<any> {
-        let api = this.search_url + query + '&client_id=' + this.client_id + '&type=suggest';
+        // tslint:disable-next-line:max-line-length
+        let api = this.search_url + query + '&client_id=' + this.client_id + '&limit=' + this.max_results + '&type=suggest';
         return this.http.get(api)
         .map((results) => {
             let res = results.json();
+            this.lastQuery = query;
             console.log(res.videos.length);
             if (res.videos.length === 0){
                 alert('Sorry no streams where found');
             }
+            return res.videos;
+        })
+        .toPromise()
+        .catch(this.handleError)
+    }
+
+    public getStreams(): Promise<any> {
+        // tslint:disable-next-line:max-line-length
+        let api = this.search_url + this.lastQuery + '&client_id=' + this.client_id + '&limit=' + 100 + '&type=suggest';
+        return this.http.get(api)
+        .map((results) => {
+            let res = results.json();
             return res.videos;
         })
         .toPromise()

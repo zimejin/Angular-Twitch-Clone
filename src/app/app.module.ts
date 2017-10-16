@@ -32,6 +32,9 @@ import { DrawerComponent } from './main/drawer-component/drawer-component';
 //  Pipes
 import { VideoDurationPipe } from './shared/pipes/video-duration.pipe';
 import { VideoViewsPipe } from './shared/pipes/video-views.pipe';
+//  Directives
+import { LazyScroll } from './shared/directives/lazy-scroll.directive';
+import { ToggleDirective } from './shared/directives/toggle.directive';
 //  Styles
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -65,7 +68,9 @@ type StoreType = {
     TwitchVideoSearchComponent,
     DrawerComponent,
     VideoDurationPipe,
-    VideoViewsPipe
+    VideoViewsPipe,
+    LazyScroll,
+    ToggleDirective
   ],
   /**
    * Import Angular's modules.

@@ -20,6 +20,7 @@ hr {
     color:#b8b5c0!important;
     position: relative;
     font-family: helvetica;
+    cursor: pointer;
 }
 .tw-avatar {
     height: 40px;
@@ -39,6 +40,16 @@ hr {
     margin-left: 10px;
     display: inline-block;
 }
-.side-elements-container:hover {
+.side-elements-container:hover .delete-from-list {
     color: green!important;
+    display: block;
+}
+.delete-from-list {
+    position: absolute;
+    display: none;
+    bottom: 0;
+    right: 0;
+    color: #f44542;
+    background-color: rgba(0, 0, 0, 0.65);
+    font-size: 16px;
 }

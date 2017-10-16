@@ -12,12 +12,24 @@ export class MainComponent {
     public favoriteVideosList = [];
     constructor( private twitchapiservice: TwitchApiService){}
 
-    public handleSearchVideo(videos: Array<any>): void {
+    public handleSearchVideo(videos: any[]): void {
         // this functions will create populate the videoList with the array from the API.
         this.videoList = videos;
     }
-    public handleLikeEvent(videos: Array<any>): void {
+    public handleLikeEvent(videos: any): void {
         // Push our favorite videos into a favorite videos array
         this.favoriteVideosList = videos;
+    }
+    public getStreams(): void {
+        this.twitchapiservice.getStreams()
+        .then((data) => {
+            data.forEach((val) => {
+                if (!this.videoList.some((e) => e._id === val._id)) {
+                    this.videoList.push(val);
+                }
+            })
+        }).catch((error) => { 
+            console.log(error)
+        });
     }
 }

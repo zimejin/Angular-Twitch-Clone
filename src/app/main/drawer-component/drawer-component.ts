@@ -14,4 +14,7 @@ export class DrawerComponent {
     constructor() {
         console.log(this.favoriteVideosList)
      }
+    public removeFromList(video: Object): void {
+        this.favoriteVideosList.splice(this.favoriteVideosList.indexOf(video), 1);
+    }
 }
