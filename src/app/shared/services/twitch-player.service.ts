@@ -2,6 +2,7 @@ import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 let _window: any = window;
+declare var Twitch: any;
 
 @Injectable()
 export class TwitchPlayerService {
