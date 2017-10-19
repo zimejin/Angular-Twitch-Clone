@@ -5,7 +5,7 @@
   </div>
     <!-- Okay -->
     <div class="side-elements-container" *ngFor="let video of favoriteVideosList">
-      <div class="side-navi-panel">
+      <div class="side-navi-panel" (click)='play(video)'>
           <div class="tw-avatar" [ngStyle]="{'background' : '#000 url(' + video.preview + ') center center no-repeat', 'background-size': '125%' }">
           </div>
         <div class="side-stream_name">

@@ -33,9 +33,10 @@ export class TwitchVideoSearchComponent {
         this.last_search = this.searchForm.value.query;
         this.twitchservice.searchVideos(this.last_search)
         .then((response) => {
+            // console.log(response);
             let arrayObj = [];
             interface DataObj { title: any; _id: any; preview: any; views: any; }
-            for (let i of response) {
+            for (let i in response) {
                 const data: DataObj = {
                     title:  response[i].title,
                     _id:    response[i]._id,
