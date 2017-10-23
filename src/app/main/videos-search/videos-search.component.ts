@@ -27,7 +27,7 @@ export class TwitchVideoSearchComponent {
             this.videosUpdated.emit(data);
         });
     }
-
+    // Search Function which is called from search component
     public doSearch(event): void {
         this.videosUpdated.emit([]);
         this.last_search = this.searchForm.value.query;
@@ -36,7 +36,7 @@ export class TwitchVideoSearchComponent {
             // console.log(response);
             let arrayObj = [];
             interface DataObj { title: any; _id: any; preview: any; views: any; }
-            for (let i in response) {
+            for (let i; i < response.length; i++) {
                 const data: DataObj = {
                     title:  response[i].title,
                     _id:    response[i]._id,

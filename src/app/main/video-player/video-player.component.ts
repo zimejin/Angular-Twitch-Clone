@@ -18,8 +18,8 @@ export class VideoPlayerComponent implements AfterContentInit {
         this.twitchplayerservice.currentVideoText.subscribe((event) => this.currentVideoText = event || 'None' );
     }
 
-    // tslint:disable-next-line:member-access
-    ngAfterContentInit() {
+    // Dynamically embed our API String for Interative Twitch videos
+    public ngAfterContentInit() {
         let doc = window.document;
         let playerApi = doc.createElement('script');
         playerApi.type = 'text/javascript';
@@ -29,7 +29,7 @@ export class VideoPlayerComponent implements AfterContentInit {
     }
 
     // tslint:disable-next-line:member-access
-    togglePlayer(): void {
+    public togglePlayer(): void {
         this.minPlayer = !this.minPlayer;
         this.superMinPlayer = false;
     }

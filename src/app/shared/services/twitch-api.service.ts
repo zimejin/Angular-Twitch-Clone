@@ -19,6 +19,10 @@ export class TwitchApiService {
         private http: Http
     ){}
 
+    /* The getVideos functions is the first function that runs when our app initializes the 
+    values it returns are then emited to maincomponent from search component and
+    eventually passed to videoList component. */
+
     public getVideos(): Promise<any> {
         // tslint:disable-next-line:max-line-length
         let api = this.base_url + 'client_id=' + this.client_id + '&limit=' + this.max_results + '&type=suggest';
@@ -47,10 +51,10 @@ export class TwitchApiService {
         .toPromise()
         .catch(this.handleError)
     }
-
+    /* The getStreams functions runs when the scroll event is emited to return more results*/
     public getStreams(): Promise<any> {
-        // tslint:disable-next-line:max-line-length
-        let api = this.search_url + this.lastQuery + '&client_id=' + this.client_id + '&limit=' + 100 + '&type=suggest';
+        let api = this.search_url + this.lastQuery + '&client_id=' + 
+        this.client_id + '&limit=' + 100 + '&type=suggest';
         return this.http.get(api)
         .map((results) => {
             let res = results.json();

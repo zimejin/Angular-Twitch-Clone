@@ -1,3 +1,4 @@
+// Imports
 import { Component } from '@angular/core';
 import { TwitchApiService } from '../shared/services/twitch-api.service';
 
@@ -20,6 +21,8 @@ export class MainComponent {
         // Push our favorite videos into a favorite videos array
         this.favoriteVideosList = videos;
     }
+    /* getStreams() calls getStreams function in twitchapiservice to return data which we
+        then push into the videoList array*/
     public getStreams(): void {
         this.twitchapiservice.getStreams()
         .then((data) => {

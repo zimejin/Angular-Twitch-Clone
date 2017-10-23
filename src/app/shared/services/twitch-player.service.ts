@@ -2,6 +2,8 @@ import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 let _window: any = window;
+// the declare method allows us to tell typescript that this method has already being
+// defined somewhere else, essentially allowing us to load our api without a keyword error
 declare var Twitch: any;
 
 @Injectable()
@@ -14,7 +16,7 @@ export class TwitchPlayerService {
     private currentVideoId: string;
 
     constructor() {}
-    /* TODO write a function to initialize the twitch-player frame taking into
+    /* MY-TODO write a function to initialize the twitch-player frame taking into
     consideration the VIDEO-ID */
     public createPlayer(): void {
         let options = {
@@ -31,7 +33,7 @@ export class TwitchPlayerService {
             }
         }, 100 );
     }
-    /* TODO - create a Play-Video function that would load the video by ID //'v109010497'*/
+    /* My-TODO - create a Play-Video function that would load the video by ID //'v109010497'*/
     public playVideo(video: any) {
         if (!this.twitch_player) {
             console.log('Video Player is Loading');
