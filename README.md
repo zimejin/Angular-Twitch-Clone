@@ -6,6 +6,8 @@ using the Twitch API I built a Twitch Client that includes some of the core Twit
 Live Preview Link 
 https://angular-4-twitch-client.firebaseapp.com/
 
+Note: For the best user experience be sure to have a good network conection when running the app,cTo ensure the css is applied from the CDN.
+
 ------------------------------------------
 
 Screen Shots
