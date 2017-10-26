@@ -21,7 +21,7 @@ Screen Shots
 ![Image](https://github.com/zimejin/Angular-4.0_Twitch-Client/blob/master/twtfvlistsrn.png?raw=true)
 -----------------------------------------------------------------------------------------------------------------------------------
 TODO
-* OAuth | user login with credentials
-* Firebase Cloud Functions
-* Service Worker Offline 
+* OAuth | User Abstraction
+* Firebase Cloud Functions |Event Driven
+* Service Worker | Offline 
 * Twitch Chat
