@@ -22,6 +22,7 @@ Screen Shots
 -----------------------------------------------------------------------------------------------------------------------------------
 TODO
 * OAuth | User Abstraction
-* Firebase Cloud Functions |Event Driven
-* Service Worker | Offline 
-* Twitch Chat
+* Firebase Cloud Functions |Event Driven 
+* Twitch Chat 
+* Multi-Page
+* Favourite Streams UI Tweak 
