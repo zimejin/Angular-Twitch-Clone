@@ -23,6 +23,4 @@ Screen Shots
 TODO
 * OAuth | User Abstraction
 * Firebase Cloud Functions |Event Driven 
-* Twitch Chat 
-* Multi-Page
 * Favourite Streams UI Tweak 
