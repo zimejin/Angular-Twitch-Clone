@@ -23,10 +23,11 @@ import { XLargeDirective } from './home/x-large';
 //  Services
 import { TwitchApiService } from './shared/services/twitch-api.service';
 import { TwitchPlayerService } from './shared/services/twitch-player.service';
-import { VideoPlayerComponent } from './main/video-player/video-player.component';
+import { TwitchAuthService } from './shared/services/twitch-auth.service';
 //  Custom Components
 import { TwitchVideoSearchComponent } from './main/videos-search/videos-search.component';
 import { MainComponent } from './main/main.component';
+import { VideoPlayerComponent } from './main/video-player/video-player.component';
 import { VideoListComponent } from './main/video-list/video-list.component';
 import { DrawerComponent } from './main/drawer-component/drawer-component';
 //  Pipes
@@ -93,7 +94,8 @@ type StoreType = {
     ENV_PROVIDERS,
     APP_PROVIDERS,
     TwitchApiService,
-    TwitchPlayerService
+    TwitchPlayerService,
+    TwitchAuthService
   ]
 })
 export class AppModule {

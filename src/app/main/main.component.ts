@@ -1,6 +1,7 @@
 // Imports
 import { Component } from '@angular/core';
 import { TwitchApiService } from '../shared/services/twitch-api.service';
+import { TwitchAuthService } from '../shared/services/twitch-auth.service';
 
 @Component({
     selector: 'main-comp',
@@ -11,7 +12,8 @@ import { TwitchApiService } from '../shared/services/twitch-api.service';
 export class MainComponent {
     public videoList = [];
     public favoriteVideosList = [];
-    constructor( private twitchapiservice: TwitchApiService){}
+    constructor( private twitchapiservice: TwitchApiService,
+                 private authenticationservice: TwitchAuthService ) {}
 
     public handleSearchVideo(videos: any[]): void {
         // this functions will create populate the videoList with the array from the API.
@@ -31,8 +33,12 @@ export class MainComponent {
                     this.videoList.push(val);
                 }
             })
-        }).catch((error) => { 
-            console.log(error)
+        }).catch((error) => {
+            console.log(error);
         });
+    }
+    // Authenticate User
+    public authUser() {
+        this.authenticationservice.userAuth();
     }
 }
