@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { TwitchApiService } from '../../shared/services/twitch-api.service';
 import { TwitchPlayerService } from '../../shared/services/twitch-player.service';
+import { DataObj } from '../../data-model';
 
 @Component({
 	selector: 'videos-search',
@@ -33,15 +34,13 @@ export class TwitchVideoSearchComponent {
         this.last_search = this.searchForm.value.query;
         this.twitchservice.searchVideos(this.last_search)
         .then((response) => {
-            // console.log(response);
+            console.log(response);
             let arrayObj = [];
-            interface DataObj { title: any; _id: any; preview: any; views: any; }
-            for (let i; i < response.length; i++) {
-                const data: DataObj = {
-                    title:  response[i].title,
-                    _id:    response[i]._id,
-                    preview: response[i].preview,
-                    views:   response[i].views};
+            // tslint:disable-next-line:prefer-for-of
+            for (let i = 0; i < response.length; i++) {
+                const data: DataObj = { title: response[i].title, _id: response[i]._id,
+                    preview: response[i].preview, views: response[i].views,
+                    length: response[i].length};
                 arrayObj.push(data);
                 }
             this.videosUpdated.emit(arrayObj);

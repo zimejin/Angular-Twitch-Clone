@@ -43,17 +43,17 @@ export class TwitchApiService {
             let res = results.json();
             this.lastQuery = query;
             console.log(res.videos.length);
-            if (res.videos.length === 0){
+            if (res.videos.length < 1 ) {
                 alert('Sorry no streams where found');
             }
             return res.videos;
         })
         .toPromise()
-        .catch(this.handleError)
+        .catch(this.handleError);
     }
     /* The getStreams functions runs when the scroll event is emited to return more results*/
     public getStreams(): Promise<any> {
-        let api = this.search_url + this.lastQuery + '&client_id=' + 
+        let api = this.search_url + this.lastQuery + '&client_id=' +
         this.client_id + '&limit=' + 100 + '&type=suggest';
         return this.http.get(api)
         .map((results) => {
@@ -61,7 +61,7 @@ export class TwitchApiService {
             return res.videos;
         })
         .toPromise()
-        .catch(this.handleError)
+        .catch(this.handleError);
     }
 
     private handleError(error: Response | any) {

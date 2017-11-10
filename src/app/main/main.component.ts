@@ -10,6 +10,7 @@ import { TwitchAuthService } from '../shared/services/twitch-auth.service';
 })
 
 export class MainComponent {
+    public accessToken;
     public videoList = [];
     public favoriteVideosList = [];
     constructor( private twitchapiservice: TwitchApiService,
@@ -40,5 +41,11 @@ export class MainComponent {
     // Authenticate User
     public authUser() {
         this.authenticationservice.userAuth();
+        this.accessToken = location.hash;
+        console.log(this.accessToken)
+        return this.accessToken;
+    }
+    public revokeUser() {
+        this.authenticationservice.revokeToken();
     }
 }

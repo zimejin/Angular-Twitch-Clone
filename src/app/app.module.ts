@@ -59,6 +59,7 @@ type StoreType = {
   bootstrap: [ AppComponent ],
   declarations: [
     XLargeDirective,
+    // Component
     AppComponent,
     MainComponent,
     AboutComponent,
@@ -68,8 +69,10 @@ type StoreType = {
     VideoPlayerComponent,
     TwitchVideoSearchComponent,
     DrawerComponent,
+    // Pipes
     VideoDurationPipe,
     VideoViewsPipe,
+    // Directives
     LazyScroll,
     ToggleDirective
   ],
@@ -93,6 +96,7 @@ type StoreType = {
   providers: [
     ENV_PROVIDERS,
     APP_PROVIDERS,
+    // Third Party Services
     TwitchApiService,
     TwitchPlayerService,
     TwitchAuthService
