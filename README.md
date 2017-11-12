@@ -22,5 +22,6 @@ Screen Shots
 -----------------------------------------------------------------------------------------------------------------------------------
 TODO
 * OAuth | User Abstraction
+* Multipage featuring Homepage, Browse, Streaming room.
 * Firebase Cloud Functions |Event Driven 
 * Favourite Streams UI Tweak 
