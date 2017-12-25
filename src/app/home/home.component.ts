@@ -1,57 +1,31 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
-
-import { AppState } from '../app.service';
-import { Title } from './title';
-import { XLargeDirective } from './x-large';
+import {  Component } from '@angular/core';
+import { TwitchApiService } from '../shared/services/twitch-api.service';
+import { TwitchAuthService } from '../shared/services/twitch-auth.service';
 
 @Component({
-  /**
-   * The selector is what angular internally uses
-   * for `document.querySelectorAll(selector)` in our index.html
-   * where, in this case, selector is the string 'home'.
-   */
-  selector: 'home',  // <home></home>
-  /**
-   * We need to tell Angular's Dependency Injection which providers are in our app.
-   */
-  providers: [
-    Title
-  ],
-  /**
-   * Our list of styles in our component. We may add more to compose many styles together.
-   */
+  selector: 'home',
   styleUrls: [ './home.component.css' ],
-  /**
-   * Every Angular template is first compiled by the browser before Angular runs it's compiler.
-   */
   templateUrl: './home.component.html'
 })
-export class HomeComponent implements OnInit {
-  /**
-   * Set our default values
-   */
-  public localState = { value: '' };
-  /**
-   * TypeScript public modifiers
-   */
-  constructor(
-    public appState: AppState,
-    public title: Title
-  ) {}
+export class HomeComponent  {public accessToken;
+  public videoList = [];
+  public favoriteVideosList = [];
+  constructor( private twitchapiservice: TwitchApiService,
+               private authenticationservice: TwitchAuthService ) {}
 
-  public ngOnInit() {
-    console.log('hello `Home` component');
-    /**
-     * this.title.getData().subscribe(data => this.data = data);
-     */
+  public handleLikeEvent(videos: any): void {
+      // Push our favorite videos into a favorite videos array
+      this.favoriteVideosList = videos;
+  }
+  // Authenticate User
+  public authUser() {
+      this.authenticationservice.userAuth();
+      this.accessToken = location.hash;
+      console.log(this.accessToken);
+      return this.accessToken;
+  }
+  public revokeUser() {
+      this.authenticationservice.revokeToken();
   }
 
-  public submitState(value: string) {
-    console.log('submitState', value);
-    this.appState.set('value', value);
-    this.localState.value = '';
-  }
 }

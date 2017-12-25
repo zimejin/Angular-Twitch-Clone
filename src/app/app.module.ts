@@ -16,10 +16,7 @@ import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-import { HomeComponent } from './home';
-import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
-import { XLargeDirective } from './home/x-large';
 //  Services
 import { TwitchApiService } from './shared/services/twitch-api.service';
 import { TwitchPlayerService } from './shared/services/twitch-player.service';
@@ -30,9 +27,13 @@ import { MainComponent } from './main/main.component';
 import { VideoPlayerComponent } from './main/video-player/video-player.component';
 import { VideoListComponent } from './main/video-list/video-list.component';
 import { DrawerComponent } from './main/drawer-component/drawer-component';
+import { MainNavigationComponent } from './main-navigation-component/main.navigation-component';
+import { HomeComponent } from './home';
+import { ChannelComponent } from './channel-component';
 //  Pipes
 import { VideoDurationPipe } from './shared/pipes/video-duration.pipe';
 import { VideoViewsPipe } from './shared/pipes/video-views.pipe';
+import { SafePipe } from './shared/pipes/safe-pipe';
 //  Directives
 import { LazyScroll } from './shared/directives/lazy-scroll.directive';
 import { ToggleDirective } from './shared/directives/toggle.directive';
@@ -58,20 +59,21 @@ type StoreType = {
 @NgModule({
   bootstrap: [ AppComponent ],
   declarations: [
-    XLargeDirective,
     // Component
     AppComponent,
+    MainNavigationComponent,
     MainComponent,
-    AboutComponent,
-    HomeComponent,
-    NoContentComponent,
     VideoListComponent,
     VideoPlayerComponent,
     TwitchVideoSearchComponent,
     DrawerComponent,
+    ChannelComponent,
+    HomeComponent,
+    NoContentComponent,
     // Pipes
     VideoDurationPipe,
     VideoViewsPipe,
+    SafePipe,
     // Directives
     LazyScroll,
     ToggleDirective

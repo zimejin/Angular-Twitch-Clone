@@ -33,7 +33,7 @@ export class MainComponent {
                 if (!this.videoList.some((e) => e._id === val._id)) {
                     this.videoList.push(val);
                 }
-            })
+            });
         }).catch((error) => {
             console.log(error);
         });
@@ -42,7 +42,7 @@ export class MainComponent {
     public authUser() {
         this.authenticationservice.userAuth();
         this.accessToken = location.hash;
-        console.log(this.accessToken)
+        console.log(this.accessToken);
         return this.accessToken;
     }
     public revokeUser() {

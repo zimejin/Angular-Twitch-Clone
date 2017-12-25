@@ -4,7 +4,7 @@
             <div class="video-info-block">
                 <div class="video-informations">
                     <span style="float: left;">
-                        <i class="material-icons">thumb_up</i>
+                        <i class="material-icons">favorite</i>
                     </span>
                     <span style="margin-left: 10px;">
                         <i class="material-icons">remove_red_eye</i>
@@ -23,7 +23,7 @@
                 <i class="material-icons">play_circle_filled</i></div>
             </div>
             <div class="mdl-card__supporting-text">
-                <i class="material-icons active" (click)='addToFavorites(video)'>whatshot</i>
+                <div class="video-informations">{{ video.title }}</div>
             </div>
         </div>
     </div>

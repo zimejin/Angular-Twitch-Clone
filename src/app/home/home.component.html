@@ -1,42 +1,11 @@
-<div>
-  <nav><a routerLink="/browse" routerLinkActive="active">Browse</a>
-    <a routerLink="/detail" routerLinkActive="active">detail</a>
-    <a routerLink="/about" routerLinkActive="active">about</a>
-    </nav>
-    <router-outlet></router-outlet>
-  <h1 x-large class="sample-content">Your Content Here</h1>
-
-  <hr>
-
-  <div>
-    For hot module reloading run
-    <pre>npm run start:hmr</pre>
-  </div>
-
-  <hr>
-
-  <div>
-    <h4>Local State</h4>
-
-    <form (ngSubmit)="submitState(localState.value)" autocomplete="off">
-
-      <input
-        [value]="localState.value"
-        (input)="localState.value = $event.target.value"
-        placeholder="Submit Local State to App State"
-        autofocus>
-
-      <button>Submit Value</button>
-    </form>
-    <!--
-        <input type="text" [value]="localState.value" (input)="localState.value = $event.target.value" autofocus>
-        Rather than wiring up two-way data-binding ourselves with [value] and (input)
-        we can use Angular's [(ngModel)] syntax
-        <input type="text" name="textInput" [(ngModel)]="localState.value" autofocus>
-      -->
-
-    <pre>this.localState = {{ localState | json }}</pre>
-
-  </div>
-
-</div>
+<main class="mdl-layout__content">
+    <div class="page-content" style="padding-top:20px">
+        <div>Welcome to Multipage 0</div>
+        <div>Welcome to Multipage 1</div>
+        <div>Welcome to Multipage 2</div>
+        <div>Welcome to Multipage 3</div>
+        <div>Welcome to Multipage 4</div>
+        <div>Welcome to Multipage 5</div>
+    </div>
+</main>
+    

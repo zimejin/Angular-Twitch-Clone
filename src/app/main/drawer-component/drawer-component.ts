@@ -8,16 +8,15 @@ import { TwitchPlayerService } from '../../shared/services/twitch-player.service
 })
 
 export class DrawerComponent {
-    // tslint:disable-next-line:member-access
-    @Input() favoriteVideosList: any;
+  @Input() favoriteVideosList: any;
 
-    // tslint:disable-next-line:no-empty
-    constructor( private twitchplayerservice: TwitchPlayerService) {
-     }
-    public removeFromList(video: Object): void {
-        this.favoriteVideosList.splice(this.favoriteVideosList.indexOf(video), 1);
-    }
-    public play(video: any): void {
-        this.twitchplayerservice.playVideo(video);
-    }
+  // tslint:disable-next-line:no-empty
+  constructor( private twitchplayerservice: TwitchPlayerService) {
+  }
+  public removeFromList(video: Object): void {
+    this.favoriteVideosList.splice(this.favoriteVideosList.indexOf(video), 1);
+  }
+  public play(video: any): void {
+    this.twitchplayerservice.playVideo(video);
+  }
 }

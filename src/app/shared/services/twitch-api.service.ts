@@ -7,37 +7,32 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class TwitchApiService {
-    base_url: string = 'https://api.twitch.tv/kraken/videos/top?';
-    // tslint:disable-next-line:max-line-length
-    search_url: string = 'https://api.twitch.tv/kraken/videos/top?period=all&game=';
-    client_id: any   =  'j9ybq0hpyrlo4pgczcefitgg50lzvs';
-
-    public max_results: number = 40;
+    public baseUrl: string = 'https://api.twitch.tv/kraken/videos/top?';
+    public searchUrl: string = 'https://api.twitch.tv/kraken/videos/top?period=all&game=';
+    public clientID: any   =  'j9ybq0hpyrlo4pgczcefitgg50lzvs';
+    public maxResults: number = 40;
     public lastQuery: string;
 
-    constructor(
-        private http: Http
-    ){}
+    constructor( private http: Http ) { };
 
-    /* The getVideos functions is the first function that runs when our app initializes the 
+    /* The getVideos functions is the first function that runs when our app initializes, the
     values it returns are then emited to maincomponent from search component and
     eventually passed to videoList component. */
-
     public getVideos(): Promise<any> {
-        // tslint:disable-next-line:max-line-length
-        let api = this.base_url + 'client_id=' + this.client_id + '&limit=' + this.max_results + '&type=suggest';
+        let api = this.baseUrl + 'client_id=' + this.clientID + '&limit=' +
+        this.maxResults + '&type=suggest';
+        console.log(api);
         return this.http.get(api)
         .map((results) => {
             let res = results.json();
             return res.videos;
         })
         .toPromise()
-        .catch(this.handleError)
+        .catch(this.handleError);
     }
-
     public searchVideos(query: any): Promise<any> {
-        // tslint:disable-next-line:max-line-length
-        let api = this.search_url + query + '&client_id=' + this.client_id + '&limit=' + this.max_results + '&type=suggest';
+        let api = this.searchUrl + query + '&client_id=' + this.clientID +
+        '&limit=' + this.maxResults + '&type=suggest';
         return this.http.get(api)
         .map((results) => {
             let res = results.json();
@@ -53,8 +48,8 @@ export class TwitchApiService {
     }
     /* The getStreams functions runs when the scroll event is emited to return more results*/
     public getStreams(): Promise<any> {
-        let api = this.search_url + this.lastQuery + '&client_id=' +
-        this.client_id + '&limit=' + 100 + '&type=suggest';
+        let api = this.searchUrl + this.lastQuery + '&client_id=' +
+        this.clientID + '&limit=' + 100 + '&type=suggest';
         return this.http.get(api)
         .map((results) => {
             let res = results.json();
@@ -63,7 +58,6 @@ export class TwitchApiService {
         .toPromise()
         .catch(this.handleError);
     }
-
     private handleError(error: Response | any) {
         let errMsg: string;
         if (error instanceof Response) {

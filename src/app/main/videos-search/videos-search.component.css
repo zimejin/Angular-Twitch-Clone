@@ -14,3 +14,10 @@
     width: 45%;
     margin-left: 20px;
   }
+
+  @media (max-width: 479px) {
+    i.material-icons {
+      display: none;
+    }
+  }
+  

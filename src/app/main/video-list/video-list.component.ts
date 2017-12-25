@@ -10,11 +10,10 @@ import { TwitchPlayerService } from '../../shared/services/twitch-player.service
 
 export class VideoListComponent {
     public query: any = 'videos/top?';
-    public favoriteVideos = [];
     public toggle: boolean = true;
+    public currentVideo: any;
 
-    @Input() videoList;
-    @Output() LikeEvent = new EventEmitter();
+    @Input() public videoList;
 
     constructor(
         private twitchservice: TwitchApiService,
@@ -25,16 +24,6 @@ export class VideoListComponent {
 
    public play(video: any): void {
        this.twitchplayerservice.playVideo(video);
+       this.currentVideo = video;
    }
-   public addToFavorites(video: any): void {
-       if (!this.favoriteVideos.some((e) => e.title === video.title )){
-           this.favoriteVideos.push(video);
-           this.LikeEvent.emit(this.favoriteVideos);
-           console.log(video);
-        }
-       this.toggleState();
-    }
-    public toggleState() {
-        this.toggle = !this.toggle;
-    }
 }

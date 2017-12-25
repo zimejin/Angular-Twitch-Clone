@@ -2,49 +2,55 @@ import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 let _window: any = window;
-// the declare method allows us to tell typescript that this method has already being
-// defined somewhere else, essentially allowing us to load our api without a keyword error
+/* the declare method tells Angular & typescript that this method has already being
+ defined somewhere else, essentially allowing us to load our api without a keyword error */
 declare var Twitch: any;
+declare var setVideo: any;
 
 @Injectable()
 export class TwitchPlayerService {
+    // tslint:disable-next-line:variable-name
     public twitch_player;
-    public width: string = '400';
-    public height: string = '300';
-
+    public channelView: any;
+    /* Emit the currentvideotext to the main component and videocomponent to display now playing*/
     @Output() public currentVideoText: EventEmitter<any> = new EventEmitter(true);
-    private currentVideoId: string;
+    private currentVideoId: any;
 
     constructor() {}
-    /* MY-TODO write a function to initialize the twitch-player frame taking into
+    /* Function to initialize the twitch-player frame taking into
     consideration the VIDEO-ID */
-    public createPlayer(): void {
-        let options = {
-            width:  this.width,
-            height: this.height,
-            video:  null
-        };
+    public appendAPI() {
+        let doc = window.document;
+        let playerApi = doc.createElement('script');
+        playerApi.type = 'text/javascript';
+        playerApi.src = 'https://player.twitch.tv/js/embed/v1.js';
+        doc.body.appendChild(playerApi);
+    }
+    public playerOptions(width: string, height: string) {
+        let options = { width, height };
+        return options;
+    }
+    public createPlayer(playerOptions): void {
         let interval = setInterval(() => {
             // tslint:disable-next-line:max-line-length
             if ((typeof _window.Twitch !== 'undefined') && _window.Twitch && _window.Twitch.Player) {
-                this.twitch_player = new Twitch.Player('twitch-player', options);
+                this.twitch_player = new Twitch.Player('twitch-player', playerOptions);
                 this.twitch_player.setMuted(false);
                 clearInterval(interval);
             }
         }, 100 );
     }
-    /* My-TODO - create a Play-Video function that would load the video by ID //'v109010497'*/
+    /* play the video by ID, Sample ID 'v109010497' */
     public playVideo(video: any) {
         if (!this.twitch_player) {
             console.log('Video Player is Loading');
         }
         this.twitch_player.setVideo(video._id);
-        this.currentVideoId = video._id;
+        // Emit Current Video Text for Now Playing Menu
         this.currentVideoText.emit(video.title);
+        this.channelView = video.channel.name;
    };
-
-   public resizePlayer(width: number, height: number) {
-       this.width = width.toString();
-       this.height = width.toString();
+   public resizePlayer(width: string, height: string) {
+      this.playerOptions(width, height);
     }
 }

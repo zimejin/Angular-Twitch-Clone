@@ -1,0 +1,27 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <a href>
+                    <img class="logo" src="assets/icon/Twitch_White_RGB.png">
+                </a>
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" id="browse" routerLink="/browse">Browse</a>
+                    <a class="mdl-navigation__link" id="home" routerLink="/channel">Channel</a>
+                    <a class="mdl-navigation__link" id="home" routerLink="/channel">Shop</a>                 
+                </nav>                
+                <!-- Right aligned menu below button -->
+                <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">more_vert</i>
+                </button>
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+              <li class="mdl-menu__item" (click)='authUser()'>Log in</li>
+              <li class="mdl-menu__item" (click)='revokeUser()'>Log Out</li>
+              <li disabled class="mdl-menu__item">Disabled Action</li>
+              <li class="mdl-menu__item">Settings</li>
+            </ul>
+         </div>
+        </header>
+    </div>
+    <router-outlet></router-outlet>
+    

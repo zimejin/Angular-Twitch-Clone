@@ -5,8 +5,11 @@
                 <img class="logo" src="assets/icon/Twitch_White_RGB.png">
             </a>
             <div class="mdl-layout-spacer"></div>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" id="home" routerLink="/home">Home</a>
+                <a class="mdl-navigation__link" id="home" routerLink="/channel">Shop</a>   
+            </nav>
             <videos-search (videosUpdated)="handleSearchVideo($event)"></videos-search>
-            
             <!-- Right aligned menu below button -->
             <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
                 <i class="material-icons">more_vert</i>
@@ -19,6 +22,7 @@
         </ul>
      </div>
     </header>
+    <!-- App Drawer -->
     <div class="mdl-layout__drawer">
         <drawer [favoriteVideosList]="favoriteVideosList"></drawer>
     </div>
@@ -32,5 +36,3 @@
     <div class="loading"></div>
 </div>
 <video-player></video-player>
-
-

@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { TwitchApiService } from '../../shared/services/twitch-api.service';
 import { TwitchPlayerService } from '../../shared/services/twitch-player.service';
-import { DataObj } from '../../data-model';
+import { DataObj } from '../../interface/data-model';
 
 @Component({
 	selector: 'videos-search',

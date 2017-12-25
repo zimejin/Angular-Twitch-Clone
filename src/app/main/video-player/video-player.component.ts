@@ -20,12 +20,8 @@ export class VideoPlayerComponent implements AfterContentInit {
 
     // Dynamically embed our API String for Interative Twitch videos
     public ngAfterContentInit() {
-        let doc = window.document;
-        let playerApi = doc.createElement('script');
-        playerApi.type = 'text/javascript';
-        playerApi.src = 'http://player.twitch.tv/js/embed/v1.js';
-        doc.body.appendChild(playerApi);
-        this.twitchplayerservice.createPlayer();
+        this.twitchplayerservice.appendAPI();
+        this.twitchplayerservice.createPlayer(this.twitchplayerservice.playerOptions('400', '300'));
     }
 
     // tslint:disable-next-line:member-access
@@ -41,7 +37,7 @@ export class VideoPlayerComponent implements AfterContentInit {
         this.fullscreenActive = !this.fullscreenActive;
         let width = this.fullscreenActive ? window.innerWidth - 70 : 440;
         let height = this.fullscreenActive ? window.innerHeight - 120 : 250;
-        this.twitchplayerservice.resizePlayer(width, height);
+        this.twitchplayerservice.resizePlayer(width.toString(), height.toString());
     };
 
     // tslint:disable-next-line:member-access
