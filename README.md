@@ -14,6 +14,10 @@ Screen Shots
 
 ![Image](https://github.com/zimejin/Angular-4.0_Twitch-Client/blob/master/twitclihmsrn.png?raw=true)
 -------------------------
+
+------------------------
+![Image](https://github.com/zimejin/Angular-4.0_Twitch-Streaming-App/blob/master/screencapture-angular-4-twitch-client-firebaseapp-channel-2019-05-02-08_32_56.png?raw=true)
+-------------------------
 ------------------------
 ![Image](https://github.com/zimejin/Angular-4.0_Twitch-Client/blob/master/twtfulsrn.png?raw=true)
 -------------------------
