@@ -24,8 +24,3 @@ Screen Shots
 ---------------------
 ![Image](https://github.com/zimejin/Angular-4.0_Twitch-Client/blob/master/twtfvlistsrn.png?raw=true)
 -----------------------------------------------------------------------------------------------------------------------------------
-TODO
-* OAuth | User Abstraction
-* Multipage featuring Homepage, Browse, Streaming room.
-* Firebase Cloud Functions |Event Driven 
-* Favourite Streams UI Tweak 
