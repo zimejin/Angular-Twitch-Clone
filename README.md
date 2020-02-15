@@ -1,6 +1,3 @@
-LIVE PREVIEW 
-https://angular-4-twitch-client.firebaseapp.com/
-
 About
 -----------
 Twitch is a popular live streaming service that allows users to broadcast live video-game play and events. In this project
